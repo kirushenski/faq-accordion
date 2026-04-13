@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  overflow-wrap: break-word;
+}
+
+html {
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
+  }
+}
+
+#root {
+  isolation: isolate;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--theme-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+}

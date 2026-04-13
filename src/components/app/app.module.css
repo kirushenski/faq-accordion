@@ -1,0 +1,8 @@
+.root {
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100vh;
+  display: grid;
+  color: var(--color-purple-950);
+  background-color: var(--color-purple-100);
+  font: var(--font-base);
+}

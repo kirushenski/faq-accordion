@@ -1,0 +1,29 @@
+:root {
+  /* HSL */
+  --hsl-white: 0 100% 100%;
+  --hsl-purple-100: 275 100% 97%;
+  --hsl-purple-600: 292 16% 49%;
+  --hsl-purple-950: 292 42% 14%;
+
+  /* Colors */
+  --color-white: hsl(var(--hsl-white));
+  --color-purple-100: hsl(var(--hsl-purple-100));
+  --color-purple-600: hsl(var(--hsl-purple-600));
+  --color-purple-950: hsl(var(--hsl-purple-950));
+
+  /* Font family */
+  --font-family: 'WorkSans', system-ui;
+
+  /* Fonts */
+  --font-base: 400 1rem/1.5 var(--font-family);
+
+  /* Animation */
+  --duration: 300ms;
+
+  /* Focus */
+  --focus-width: 3px;
+  --focus-color: var(--color-purple-100);
+
+  /* Theme */
+  --theme-color: var(--color-purple-100);
+}
