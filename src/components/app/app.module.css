@@ -1,48 +1,68 @@
 .root {
-  min-block-size: 100vh;
+  min-block-size: 100svh;
+  min-inline-size: 320px;
+  padding: var(--spacing-300);
   display: grid;
   grid-template-areas: 'stack';
   place-items: center;
   background-color: var(--color-purple-100);
-  font: var(--font-base);
   background-image: url('../../assets/images/background-pattern-desktop.svg');
   background-repeat: repeat-x;
 }
 
 .heading {
-  font: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-300);
+  font: var(--font-preset-1);
+
+  @media (width < 768px) {
+    font: var(--font-preset-1-mobile);
+  }
 }
 
 .wrapper {
   grid-area: stack;
-  max-inline-size: 540px;
-  padding: 20px 40px;
-  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+  max-inline-size: 600px;
+  padding: var(--spacing-500);
+  padding-block-end: var(--spacing-200);
+  border-radius: 16px;
   background-color: var(--color-white);
   color: var(--color-purple-950);
-  transform: translateY(-20%);
+  box-shadow: 0 32px 56px hsl(281deg 100% 23% / 10%);
+
+  @media (width < 768px) {
+    gap: 0;
+    padding: var(--spacing-300);
+    padding-block-end: 0;
+  }
 }
 
 .accordion {
+  details:not(:last-child) {
+    border-block-end: 1px solid var(--color-purple-100);
+  }
+
   summary {
-    position: relative;
-    padding-block: 25px;
-    border-block: 1px solid var(--color-purple-100);
-    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-300);
+    padding-block: var(--spacing-300);
+    font: var(--font-preset-2);
     cursor: pointer;
     transition: color var(--duration);
 
-    &:hover {
-      color: var(--color-purple-400);
+    @media (width < 768px) {
+      font: var(--font-preset-2-mobile);
     }
-  }
 
-  details:first-child summary {
-    border-block-start: none;
-  }
-
-  details:last-child summary {
-    border-block-end: none;
+    &:hover {
+      color: var(--color-violet-600);
+    }
   }
 
   summary::marker {
@@ -50,20 +70,22 @@
   }
 
   ::details-content {
+    font: var(--font-preset-3);
     color: var(--color-purple-600);
+
+    @media (width < 768px) {
+      font: var(--font-preset-3-mobile);
+    }
   }
 
-  details[open] ::details-content {
-    padding-block: 25px; /* not working */
+  details[open]::details-content {
+    padding-block-end: var(--spacing-300);
   }
 
   .minus,
   .plus {
-    position: absolute;
-    inset-block: 0;
-    inset-inline-end: 0;
-    margin-block: auto;
-    color: var(--color-purple-400);
+    flex-shrink: 0;
+    color: var(--color-violet-600);
   }
 
   .minus {
@@ -88,8 +110,13 @@
 
 .star {
   display: inline;
-  color: var(--color-purple-400);
+  color: var(--color-violet-600);
   transition: ease-in-out 800ms;
+
+  @media (width < 768px) {
+    block-size: 24px;
+    inline-size: 24px;
+  }
 
   &:hover {
     transform: rotate(360deg);

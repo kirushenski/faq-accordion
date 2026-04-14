@@ -5,17 +5,14 @@ import classes from './app.module.css'
 
 // TODO build Accordion component
 // TODO add height animation
-// TODO mobile styles
-// FIXME borders
-// FIXME content padding
-// FIXME plusminus content overlap
 
 export function App() {
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
         <h1 className={classes.heading}>
-          <SvgStar className={classes.star} /> FAQs
+          <SvgStar className={classes.star} />
+          FAQs
         </h1>
         <div className={classes.accordion}>
           <details name="faq" open>
@@ -47,7 +44,7 @@ export function App() {
           </details>
           <details name="faq">
             <summary>
-              How can I get help if I'm stuck on a Frontend Mentor challenge?
+              How can I get help if I'm stuck on a challenge?
               <SvgMinus className={classes.minus} />
               <SvgPlus className={classes.plus} />
             </summary>
