@@ -2,8 +2,6 @@ import SvgStar from '@/assets/icons/star.svg?react'
 import classes from './app.module.css'
 import { Accordion, Panel } from '@/components/accordion/accordion'
 
-// TODO add height animation
-
 export function App() {
   return (
     <div className={classes.root}>

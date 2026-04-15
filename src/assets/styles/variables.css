@@ -2,16 +2,16 @@
   /* HSL */
   --hsl-white: 0 100% 100%;
   --hsl-purple-100: 275 100% 97%;
-  --hsl-violet-600: 281 83% 54%;
   --hsl-purple-600: 292 16% 49%;
   --hsl-purple-950: 292 42% 14%;
+  --hsl-violet-600: 281 83% 54%;
 
   /* Colors */
   --color-white: hsl(var(--hsl-white));
   --color-purple-100: hsl(var(--hsl-purple-100));
-  --color-violet-600: hsl(var(--hsl-violet-600));
   --color-purple-600: hsl(var(--hsl-purple-600));
   --color-purple-950: hsl(var(--hsl-purple-950));
+  --color-violet-600: hsl(var(--hsl-violet-600));
 
   /* Font family */
   --font-family: 'WorkSans', system-ui;
@@ -32,7 +32,26 @@
   --spacing-500: 40px;
 
   /* Animation */
-  --duration: 300ms;
+  --duration-quick: 300ms;
+  --duration: 500ms;
+  --duration-slow: 1000ms;
+  --easing: linear(
+    0,
+    0.013 1%,
+    0.051 2.2%,
+    0.404 9.8%,
+    0.51 12.6%,
+    0.602 15.5%,
+    0.683 18.7%,
+    0.754 22.2%,
+    0.813 26%,
+    0.861 30.2%,
+    0.9 34.8%,
+    0.931 40%,
+    0.972 52.7%,
+    0.992 70.2%,
+    1
+  );
 
   /* Focus */
   --focus-width: 3px;

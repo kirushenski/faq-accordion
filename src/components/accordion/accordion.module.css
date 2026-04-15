@@ -3,10 +3,6 @@
     &:not(:last-child) {
       border-block-end: 1px solid var(--color-purple-100);
     }
-
-    &[open]::details-content {
-      padding-block-end: var(--spacing-300);
-    }
   }
 
   summary {
@@ -17,14 +13,19 @@
     padding-block: var(--spacing-300);
     font: var(--font-preset-2);
     cursor: pointer;
-    transition: color var(--duration);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color ease var(--duration-quick);
+    }
 
     @media (width < 768px) {
       font: var(--font-preset-2-mobile);
     }
 
-    &:hover {
-      color: var(--color-violet-600);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-violet-600);
+      }
     }
 
     &::marker {
@@ -33,34 +34,58 @@
   }
 
   ::details-content {
+    block-size: 0;
+    overflow: clip;
     font: var(--font-preset-3);
     color: var(--color-purple-600);
+
+    @supports (interpolate-size: allow-keywords) {
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          block-size ease var(--duration),
+          padding-block-end ease var(--duration),
+          content-visibility var(--duration) ease allow-discrete;
+      }
+    }
 
     @media (width < 768px) {
       font: var(--font-preset-3-mobile);
     }
   }
 
-  .icon {
-    flex-shrink: 0;
-    color: var(--color-violet-600);
+  [open]::details-content {
+    block-size: auto;
+    padding-block-end: var(--spacing-300);
+  }
 
-    [open] & {
-      color: var(--color-purple-950);
+  .icon-wrapper {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-areas: 'stack';
+  }
+
+  .icon {
+    grid-area: stack;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity ease var(--duration-quick);
     }
   }
 
   .minus {
-    display: none;
+    color: var(--color-purple-950);
+    opacity: 0;
 
     [open] & {
-      display: block;
+      opacity: 1;
     }
   }
 
   .plus {
+    color: var(--color-violet-600);
+
     [open] & {
-      display: none;
+      opacity: 0;
     }
   }
 }

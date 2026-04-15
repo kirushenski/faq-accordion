@@ -71,3 +71,8 @@ h6 {
 :focus-visible {
   outline: var(--focus-width) solid var(--focus-color);
 }
+
+::selection {
+  background-color: var(--color-violet-600);
+  color: var(--color-white);
+}

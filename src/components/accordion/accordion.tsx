@@ -4,10 +4,6 @@ import classes from './accordion.module.css'
 import SvgMinus from '@/assets/icons/minus.svg?react'
 import SvgPlus from '@/assets/icons/plus.svg?react'
 
-interface AccordionProps {
-  children: ReactNode
-}
-
 interface PanelProps {
   open?: boolean
   name?: string
@@ -24,14 +20,24 @@ export function Panel({ open, name, summary, children }: PanelProps) {
   )
 }
 
-export function Summary({ children }: AccordionProps) {
+interface SummaryProps {
+  children: ReactNode
+}
+
+function Summary({ children }: SummaryProps) {
   return (
     <summary>
       {children}
-      <SvgMinus className={clsx(classes.icon, classes.minus)} />
-      <SvgPlus className={clsx(classes.icon, classes.plus)} />
+      <span className={classes['icon-wrapper']}>
+        <SvgPlus className={clsx(classes.icon, classes.plus)} />
+        <SvgMinus className={clsx(classes.icon, classes.minus)} />
+      </span>
     </summary>
   )
+}
+
+interface AccordionProps {
+  children: ReactNode
 }
 
 export function Accordion({ children }: AccordionProps) {
