@@ -5,9 +5,9 @@ import { Accordion, Panel } from '@/components/accordion/accordion'
 export function App() {
   return (
     <div className={classes.root}>
-      <div className={classes.content}>
+      <main className={classes.content}>
         <h1 className={classes.heading}>
-          <SvgStar className={classes.star} />
+          <SvgStar aria-hidden="true" focusable="false" className={classes.star} />
           FAQs
         </h1>
         <Accordion>
@@ -28,7 +28,7 @@ export function App() {
             can ask questions and seek support from other community members.
           </Panel>
         </Accordion>
-      </div>
+      </main>
     </div>
   )
 }

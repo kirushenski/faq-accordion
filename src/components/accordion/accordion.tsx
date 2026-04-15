@@ -29,8 +29,8 @@ function Summary({ children }: SummaryProps) {
     <summary>
       {children}
       <span className={classes['icon-wrapper']}>
-        <SvgPlus className={clsx(classes.icon, classes.plus)} />
-        <SvgMinus className={clsx(classes.icon, classes.minus)} />
+        <SvgPlus aria-hidden="true" focusable="false" className={clsx(classes.icon, classes.plus)} />
+        <SvgMinus aria-hidden="true" focusable="false" className={clsx(classes.icon, classes.minus)} />
       </span>
     </summary>
   )
